@@ -14,6 +14,10 @@ export const ListReservas = styled.ul`
 		align-items: center;
 		justify-content: space-between;
 
+		& + li{
+			margin-top: 20px;
+		}
+
 		img{
 			width: 180px;
 			border-radius: 4px;
