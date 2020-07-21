@@ -6,16 +6,21 @@ import GlobalStyled from './styles/global';
 import Header from './components/Header'
 import Routes from './routes';
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 
 // import { Container } from './styles';
 
 function App() {
 	return (
-		<BrowserRouter>
-			<GlobalStyled />
-			<Header />
-			<Routes />
-		</BrowserRouter>
+		<Provider store={store}>
+			<BrowserRouter>
+				<GlobalStyled />
+				<Header />
+				<Routes />
+			</BrowserRouter>
+		</Provider>
 	)
 }
 export default App;
