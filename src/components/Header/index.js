@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 import logo from '../../assets/Raspberry.svg';
 import { HeaderStyled } from './styles';
 
 
 function Header() {
+
+	const { reserve } = useSelector(state => state)
+
 	return (
 		<HeaderStyled>
 			<Link to='/'>
@@ -15,7 +19,7 @@ function Header() {
 			<Link to='/reservas'>
 				<div>
 					<strong>Minhas reservas</strong>
-					<span>3 reservas</span>
+					<span>{reserve.length} reservas</span>
 				</div>
 			</Link>
 		</HeaderStyled>

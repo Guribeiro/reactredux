@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import api from '../../services/api';
 
 import Loading from '../../components/Loading';
-
 import Container from '../../components/Container';
-
 import { ListTrips } from './styles';
 
 
 
 function Home() {
 
+	const dispatch = useDispatch();
+
 	const [trips, setTrips] = useState([])
 	const [loading, setLoading] = useState(true);
+
 
 
 	useEffect(() => {
@@ -21,13 +23,19 @@ function Home() {
 		async function loadTrips() {
 
 			const response = await api.get('trips');
-			console.log(response.data);
 			setTrips(response.data);
 			setLoading(false);
 		}
 
 		loadTrips();
 	}, [])
+
+	function handleAdd(trip){
+		dispatch({
+			type: 'ADD_RESERVE',
+			trip
+		});
+	}
 
 	if (loading) {
 		return (
@@ -47,11 +55,11 @@ function Home() {
 									{trip.title}
 								</p>
 								<span>
-									{trip.status ? 'Disponpivel' : 'Indisponível'}
+									{trip.status ? 'Disponível' : 'Indisponível'}
 								</span>
 							</figcaption>
 						</figure>
-						<button>Reservar</button>
+						<button  onClick={() => handleAdd(trip)}>Reservar</button>
 					</li>
 				))}
 			</ListTrips>
