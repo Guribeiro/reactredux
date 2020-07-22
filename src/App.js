@@ -1,16 +1,12 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import GlobalStyled from './styles/global';
-
-import Header from './components/Header'
+import store from './store';
 import Routes from './routes';
 
-import { Provider } from 'react-redux';
-import store from './store';
-
-
-// import { Container } from './styles';
+import Header from './components/Header'
+import GlobalStyled from './styles/global';
 
 function App() {
 	return (
