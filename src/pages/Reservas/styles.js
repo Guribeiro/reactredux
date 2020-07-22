@@ -18,6 +18,29 @@ export const ListReservas = styled.ul`
 			margin-top: 20px;
 		}
 
+		div{
+			display: flex;
+			min-width: 120px;
+			align-items: center;
+			justify-content: space-between;
+
+
+			small{
+				text-align: center;
+				margin: 0 2px;
+				flex: 2;
+				font-size: 16px;
+				padding: 6px;
+			}
+			button{
+				flex: 1;
+
+				svg{
+					font-size: 18px;
+				}
+			}
+		}
+
 		img{
 			width: 180px;
 			border-radius: 4px;
