@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { addTripRequest } from '../../store/modules/reserve/actions';
 
 import api from '../../services/api';
 
@@ -30,11 +31,8 @@ function Home() {
 		loadTrips();
 	}, [])
 
-	function handleAdd(trip){
-		dispatch({
-			type: 'ADD_RESERVE',
-			trip
-		});
+	function handleAdd(id) {
+		dispatch(addTripRequest(id));
 	}
 
 	if (loading) {
@@ -59,7 +57,7 @@ function Home() {
 								</span>
 							</figcaption>
 						</figure>
-						<button  onClick={() => handleAdd(trip)}>Reservar</button>
+						<button onClick={() => handleAdd(trip.id)}>Reservar</button>
 					</li>
 				))}
 			</ListTrips>
